@@ -1,0 +1,99 @@
+{
+  "pages": [
+    {
+      "name": "Home",
+      "icon": "bx-home-circle",
+      "url": "/"
+    },
+    {
+      "name": "Dashboard",
+      "icon": "bx-circle",
+      "url": "/a/dash"
+    },
+    {
+      "name": "Campaign",
+      "icon": "bx-circle",
+      "url": "/a/campaign"
+    },
+    {
+      "name": "My Blog",
+      "icon": "bx-circle",
+      "url": "/a/blog/b/"
+    },
+    {
+      "name": "My Post",
+      "icon": "bx-circle",
+      "url": "/a/blog/b/posts"
+    },
+    {
+      "name": "Add Post",
+      "icon": "bx-circle",
+      "url": "/a/blog/b/posts/add"
+    },
+    {
+      "name": "Indexing Google",
+      "icon": "bx-circle",
+      "url": "/a/indexing/google"
+    },
+    {
+      "name": "Indexing Bing",
+      "icon": "bx-circle",
+      "url": "/a/indexing/bing"
+    },
+    {
+      "name": "Indexing Yandex",
+      "icon": "bx-circle",
+      "url": "/a/indexing/yandex"
+    },
+    {
+      "name": "Social Facebook",
+      "icon": "bx-circle",
+      "url": "/a/social/facebook"
+    },
+    {
+      "name": "Social Linkedin",
+      "icon": "bx-circle",
+      "url": "/a/social/linkedin"
+    },
+    {
+      "name": "Social Twitter",
+      "icon": "bx-circle",
+      "url": "/a/social/twitter"
+    },
+    {
+      "name": "Social Pinterest",
+      "icon": "bx-circle",
+      "url": "/a/social/pinterest"
+    },
+    {
+      "name": "Plagiarism Checker",
+      "icon": "bx-circle",
+      "url": "/a/tools/plagiarism-checker"
+    },
+    {
+      "name": "Backlink Checker",
+      "icon": "bx-circle",
+      "url": "/a/tools/backlink-checker"
+    },
+    {
+      "name": "Article Spinner",
+      "icon": "bx-circle",
+      "url": "/a/tools/article-spinner"
+    },
+    {
+      "name": "DA PA Checker",
+      "icon": "bx-circle",
+      "url": "/a/tools/dapa-checker"
+    },
+    {
+      "name": "Search Content",
+      "icon": "bx-circle",
+      "url": "/a/tools/search-content"
+    },
+    {
+      "name": "Translate Content",
+      "icon": "bx-circle",
+      "url": "/a/tools/translate-content"
+    }
+  ]
+}
