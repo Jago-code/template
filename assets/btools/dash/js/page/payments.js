@@ -1,13 +1,13 @@
 var type = 'Elite',
-  pricePacket = 55000,
+  pricePacket = 50000,
   itemLoader = '<div class="d-flex justify-content-center"><div class="sk-wave sk-primary"><div class="sk-wave-rect"></div><div class="sk-wave-rect"></div><div class="sk-wave-rect"></div><div class="sk-wave-rect"></div><div class="sk-wave-rect"></div></div></div>';
 
 $('input[type=radio][name=type]').on('change', function() {
   type = $(this).val()
   if (type == 'Elite') {
-    pricePacket = 55000;
+    pricePacket = 50000;
   } else {
-    pricePacket = 135000;
+    pricePacket = 100000;
   }
 });
 
