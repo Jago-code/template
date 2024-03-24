@@ -1,0 +1,8 @@
+53B6E0
+7367f0
+5e50ee ori
+
+gradien
+rgb 83, 143, 251;
+#538FFB
+#5B54FA

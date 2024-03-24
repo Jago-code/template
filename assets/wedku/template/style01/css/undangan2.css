@@ -1,0 +1,962 @@
+.wrapper {
+    display: flex;
+    justify-content: center;
+    margin: auto;
+    min-height: 100vh;
+    position: relative;
+    width: 450px;
+}
+
+.wrapper .watermark {
+    color: white;
+    opacity: 0.4;
+    font-size: 70px;
+    position: fixed;
+    left: 50%;
+    transform: translate(-50%, -50%) rotate(-45deg);
+    top: 50%;
+    z-index: 99;
+}
+
+.wrapper .main-container-page-1 {
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    width: 100%;
+}
+
+.wrapper .main-container-page-1 .bg-sampul {
+    background: rgba(0, 0, 0, 0.75);
+    height: 100%;
+    position: absolute;
+    top: 0;
+    width: 100%;
+}
+
+.wrapper .main-container-page-1 .content-wrapper {
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    z-index: 1;
+}
+
+.wrapper .main-container-page-1 .content-wrapper .header-img {
+    height: auto;
+    margin-bottom: 30px;
+    width: 40%;
+}
+
+.wrapper .main-container-page-1 .content-wrapper strong,
+.wrapper .main-container-page-1 .content-wrapper p,
+.wrapper .main-container-page-1 .content-wrapper h4 {
+    color: white;
+    font-family: 'Noto Serif';
+    margin-bottom: 3px;
+}
+
+.wrapper .main-container-page-1 .content-wrapper strong {
+    font-size: 13px;
+}
+
+.wrapper .main-container-page-1 .content-wrapper p {
+    font-size: 15px;
+    font-family: 'Noto Sans', sans-serif;
+}
+
+.wrapper .main-container-page-1 .content-wrapper .sans-serif {
+    font-family: 'Noto Sans', sans-serif;
+    font-size: 18px;
+    color: #eee;
+}
+
+.wrapper .main-container-page-1 .content-wrapper h4 {
+    margin-top: 10px;
+    font-weight: 700;
+}
+
+.wrapper .main-container-page-1 .content-wrapper .mempelai {
+    margin-bottom: 10px;
+    margin-top: 10px;
+    text-align: center;
+    color: white;
+    font-size: 28px;
+}
+
+.wrapper .main-container-page-1 .content-wrapper .mempelai strong {
+    font-size: 30px;
+    font-family: 'Noto Sans', sans-serif;
+}
+
+.wrapper .main-container-page-1 .content-wrapper strong.undangan {
+    font-size: 22px;
+    margin-top: 5px;
+    font-family: 'Noto Sans', sans-serif;
+}
+
+.wrapper .main-container-page-1 .content-wrapper .button {
+    border: none;
+    border-radius: 7px;
+    color: white;
+    font-size: 14px;
+    font-family: 'Noto Sans', sans-serif;
+    font-weight: 700;
+    padding: 13px 35px;
+    margin-top: 10px;
+    transition: .2s;
+}
+
+.wrapper .main-container-page-1 .content-wrapper .button:hover {
+    opacity: 0.7;
+}
+
+@media screen and (max-width: 450px) {
+    .wrapper {
+        width: 100%;
+    }
+}
+
+@media screen and (max-width: 350px) {
+    .wrapper .main-container-page-1 .content-wrapper p {
+        font-size: 13px;
+    }
+
+    .wrapper .main-container-page-1 .content-wrapper .sans-serif {
+        font-size: 14px;
+    }
+
+    .wrapper .main-container-page-1 .content-wrapper .mempelai {
+        font-size: 27px;
+    }
+
+    .wrapper .main-container-page-1 .content-wrapper .mempelai strong {
+        font-size: 20px;
+    }
+
+    .wrapper .main-container-page-1 .content-wrapper strong.undangan {
+        font-size: 18px;
+    }
+
+    .wrapper .main-container-page-1 .content-wrapper .button {
+        font-size: 12px;
+        padding: 10px 30px;
+    }
+}
+
+.wrapper .main-container-page-2 {
+    background-size: cover;
+    background-position: center;
+    display: none;
+    min-height: 100vh;
+    overflow: hidden;
+    position: relative;
+    width: 100%;
+}
+
+.wrapper .main-container-page-2 .bg-sampul {
+    height: 100%;
+    position: absolute;
+    width: 100%;
+}
+
+.wrapper .main-container-page-2 .content-wrapper {
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    height: calc(100% - 65px);
+    position: absolute;
+    top: 0;
+    width: 100%;
+    z-index: 10;
+}
+
+.wrapper .main-container-page-2 .content-wrapper .image {
+    width: 80%;
+}
+
+.wrapper .main-container-page-2 .content-wrapper p {
+    font-size: 26px;
+    margin-bottom: 10px;
+}
+
+.wrapper .main-container-page-2 .content-wrapper .mempelai {
+    position: absolute;
+    text-align: center;
+    z-index: 9;
+}
+
+.wrapper .main-container-page-2 .content-wrapper .mempelai .nama-mempelai {
+    margin-top: 10px;
+    margin-bottom: 5px;
+    text-align: center;
+    font-size: 35px;
+}
+
+.wrapper .main-container-page-2 .content-wrapper .mempelai .and {
+    font-size: 30px;
+}
+
+.wrapper .main-container-page-2 .content-wrapper .mempelai strong {
+    font-size: 30px;
+    font-family: 'Noto Sans', sans-serif;
+}
+
+.wrapper .main-container-page-2 .content-wrapper .tanggal {
+    font-size: 18px;
+}
+
+@media screen and (max-width: 350px) {
+    .wrapper .main-container-page-2 .content-wrapper p {
+        font-size: 16px;
+    }
+}
+
+.wrapper .main-container-page-3 {
+    background-size: cover;
+    background-position: center;
+    display: none;
+    min-height: 100vh;
+    position: relative;
+    width: 100%;
+}
+
+.wrapper .main-container-page-3 .content-wrapper {
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    height: calc(100% - 65px);
+    overflow-y: scroll;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    z-index: 10;
+}
+
+.wrapper .main-container-page-3 .bg-sampul {
+    height: 100%;
+    position: absolute;
+    width: 100%;
+}
+
+.wrapper .main-container-page-3 .content-wrapper .bismillah {
+    width: 50%;
+}
+
+.wrapper .main-container-page-3 .content-wrapper .salam {
+    font-size: 13px;
+    margin-top: 15px;
+}
+
+.wrapper .main-container-page-3 .content-wrapper .info-undangan {
+    font-size: 14px;
+    margin-top: 10px;
+    text-align: center;
+}
+
+.wrapper .main-container-page-3 .content-wrapper .fotomempelai {
+    background-color: #eee;
+    height: 120px;
+    width: 120px;
+    margin-top: 20px;
+    border-radius: 50%;
+    margin-bottom: 5px;
+}
+
+.wrapper .main-container-page-3 .content-wrapper .fotomempelai img {
+    border-radius: 50%;
+    height: 120px;
+    width: 120px;
+    object-fit: cover;
+}
+
+.wrapper .main-container-page-3 .content-wrapper .namamempelai {
+    font-size: 20px;
+    margin-top: 7px;
+}
+
+.wrapper .main-container-page-3 .content-wrapper .namaorangtua {
+    font-size: 13px;
+}
+
+@media screen and (max-height: 750px) {
+    .wrapper .main-container-page-3 .content-wrapper {
+        padding-top: 200px;
+        padding-bottom: 100px;
+    }
+}
+
+@media screen and (max-width: 370px) {
+
+    .wrapper .main-container-page-3 .content-wrapper .info-undangan,
+    .wrapper .main-container-page-3 .content-wrapper .salam,
+    .wrapper .main-container-page-3 .content-wrapper .namaorangtua {
+        font-size: 12px;
+    }
+
+    .wrapper .main-container-page-3 .content-wrapper .fotomempelai,
+    .wrapper .main-container-page-3 .content-wrapper .fotomempelai img {
+        height: 100px;
+        width: 100px;
+    }
+
+    .wrapper .main-container-page-3 .content-wrapper .namamempelai {
+        font-size: 16px;
+    }
+}
+
+.wrapper .main-container-page-4 {
+    background-size: cover;
+    background-position: center;
+    display: none;
+    min-height: 100vh;
+    position: relative;
+    width: 100%;
+}
+
+.wrapper .main-container-page-4 .content-wrapper {
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    height: calc(100% - 65px);
+    overflow-y: scroll;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    z-index: 10;
+}
+
+.wrapper .main-container-page-4 .content-wrapper .heading {
+    font-size: 20px;
+}
+
+.wrapper .main-container-page-4 .content-wrapper .content-item {
+    display: flex;
+    flex-direction: column;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.wrapper .main-container-page-4 .content-wrapper .content-item .title {
+    font-size: 18px;
+    font-weight: 500;
+}
+
+.wrapper .main-container-page-4 .content-wrapper .content-item .info {
+    font-size: 14px;
+}
+
+.wrapper .main-container-page-4 .content-wrapper .countdown {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.wrapper .main-container-page-4 .content-wrapper .countdown #wrapperCountdown {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+}
+
+.wrapper .main-container-page-4 .content-wrapper .countdown #wrapperCountdown span {
+    align-items: center;
+    display: flex;
+    background-color: saddlebrown;
+    border-radius: 5px;
+    flex-direction: column;
+    color: white;
+    height: 55px;
+    font-size: 20px;
+    font-weight: 500;
+    justify-content: center;
+    line-height: 25px;
+    width: 50px;
+}
+
+.wrapper .main-container-page-4 .content-wrapper .countdown #wrapperCountdown span small {
+    font-size: 10px;
+    line-height: 12px;
+    margin-top: 2px;
+}
+
+.wrapper .main-container-page-4 .bg-sampul {
+    height: 100%;
+    position: absolute;
+    width: 100%;
+}
+
+@media screen and (min-height: 350px) {
+    .wrapper .main-container-page-4 .content-wrapper .content-item {
+        margin-top: 10px;
+        margin-bottom: 10px;
+    }
+}
+
+.wrapper .main-container-page-5 {
+    background-size: cover;
+    background-position: center;
+    display: none;
+    min-height: 100vh;
+    position: relative;
+    width: 100%;
+}
+
+.wrapper .main-container-page-5 .content-wrapper {
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    height: calc(100% - 65px);
+    overflow-y: scroll;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    z-index: 10;
+}
+
+.wrapper .main-container-page-5 .content-wrapper .content-item {
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    text-align: center;
+    width: 90%;
+}
+
+.wrapper .main-container-page-5 .content-wrapper .content-item .title {
+    font-size: 20px;
+    font-weight: 500;
+    margin-bottom: 25px;
+}
+
+.wrapper .main-container-page-5 .content-wrapper .content-item .info {
+    font-size: 15px;
+    margin: auto;
+    margin-top: 20px;
+    text-align: center;
+    width: 95%;
+}
+
+.wrapper .main-container-page-5 .content-wrapper .content-item .button-open-maps {
+    background-color: #333;
+    border-radius: 5px;
+    border: none;
+    color: white;
+    font-size: 12px;
+    margin: auto;
+    margin-top: 20px;
+    padding: 10px;
+    width: 130px;
+}
+
+.wrapper .main-container-page-5 .bg-sampul {
+    height: 100%;
+    position: absolute;
+    width: 100%;
+}
+
+.wrapper .main-container-page-6 {
+    background-size: cover;
+    background-position: center;
+    display: none;
+    min-height: 100vh;
+    position: relative;
+    width: 100%;
+}
+
+.wrapper .main-container-page-6 .content-wrapper {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    height: calc(100% - 65px);
+    padding-top: 100px;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    overflow-y: scroll;
+    z-index: 10;
+}
+
+.wrapper .main-container-page-6 .content-wrapper .content-item {
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+    margin-top: 20px;
+    margin-bottom: 100px;
+    text-align: center;
+    width: 80%;
+}
+
+.wrapper .main-container-page-6 .content-wrapper .content-item .title {
+    font-size: 20px;
+    font-weight: 500;
+    margin-bottom: 25px;
+}
+
+.wrapper .main-container-page-6 .content-wrapper .content-item .button-send-message {
+    background-color: #333;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    font-size: 14px;
+    font-weight: 500;
+    margin: auto;
+    outline: none;
+    padding: 10px;
+    width: 100%;
+}
+
+.wrapper .main-container-page-6 .content-wrapper .content-item .message-list {
+    background-color: white;
+    border-radius: 5px;
+    padding: 20px;
+    margin-top: 30px;
+    width: 100%;
+}
+
+.wrapper .main-container-page-6 .content-wrapper .content-item .message-item {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 15px;
+    text-align: left;
+}
+
+.wrapper .main-container-page-6 .bg-sampul {
+    height: 100%;
+    position: absolute;
+    width: 100%;
+}
+
+.wrapper .main-container-page-7 {
+    background-size: cover;
+    background-position: center;
+    display: none;
+    min-height: 100vh;
+    position: relative;
+    width: 100%;
+}
+
+.wrapper .main-container-page-7 .content-wrapper {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    height: calc(100% - 65px);
+    padding-top: 100px;
+    overflow-y: scroll;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    z-index: 10;
+}
+
+.wrapper .main-container-page-7 .content-wrapper .content-item {
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+    margin-top: 20px;
+    margin-bottom: 100px;
+    text-align: center;
+    width: 85%;
+}
+
+.wrapper .main-container-page-7 .content-wrapper .content-item .title {
+    font-size: 20px;
+    font-weight: 500;
+    margin-bottom: 30px;
+}
+
+.wrapper .main-container-page-7 .content-wrapper .content-item .info {
+    font-size: 15px;
+    margin: auto;
+    text-align: center;
+}
+
+.wrapper .main-container-page-7 .content-wrapper .content-item .salam {
+    margin: 25px 0;
+    font-size: 14px;
+}
+
+.wrapper .main-container-page-7 .content-wrapper .content-item .button-send-gift {
+    background-color: #333;
+    border-radius: 5px;
+    border: none;
+    color: white;
+    font-size: 14px;
+    font-weight: 500;
+    margin: auto;
+    margin-top: 25px;
+    outline: none;
+    padding: 12px;
+    width: 150px;
+}
+
+.wrapper .main-container-page-7 .content-wrapper .content-item .design-by {
+    margin-top: 50px;
+}
+
+.wrapper .main-container-page-7 .bg-sampul {
+    height: 100%;
+    position: absolute;
+    width: 100%;
+}
+
+.wrapper .main-container-page-8 {
+    background-size: cover;
+    background-position: center;
+    display: none;
+    min-height: 100vh;
+    position: relative;
+    width: 100%;
+}
+
+.wrapper .main-container-page-8 .content-wrapper {
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    height: calc(100% - 65px);
+    overflow-y: scroll;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    z-index: 10;
+}
+
+.wrapper .main-container-page-8 .content-wrapper .content-item {
+    display: flex;
+    flex-direction: column;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.wrapper .main-container-page-8 .content-wrapper .content-item .title {
+    font-size: 20px;
+    font-weight: 500;
+    margin-bottom: 10px;
+}
+
+.wrapper .main-container-page-8 .content-wrapper .content-item .live-wrapper .live-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 30px;
+}
+
+.wrapper .main-container-page-8 .content-wrapper .content-item .live-wrapper .live-item .icon {
+    width: 70px;
+}
+
+.wrapper .main-container-page-8 .content-wrapper .content-item .live-wrapper .live-item .btn-open-live {
+    background-color: #333;
+    border-radius: 5px;
+    border: none;
+    color: white;
+    font-size: 12px;
+    margin: auto;
+    margin-top: 15px;
+    padding: 8px 10px;
+    width: 130px;
+}
+
+.wrapper .main-container-page-8 .bg-sampul {
+    height: 100%;
+    position: absolute;
+    width: 100%;
+}
+
+.wrapper .main-container-page-9 {
+    background-size: cover;
+    background-position: center;
+    display: none;
+    min-height: 100vh;
+    position: relative;
+    width: 100%;
+}
+
+.wrapper .main-container-page-9 .content-wrapper {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    height: calc(100% - 65px);
+    padding-top: 70px;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    overflow-y: scroll;
+    z-index: 10;
+}
+
+.wrapper .main-container-page-9 .content-wrapper .content-item {
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+    margin-top: 20px;
+    margin-bottom: 100px;
+    text-align: center;
+    width: 100%;
+}
+
+.wrapper .main-container-page-9 .content-wrapper .content-item .title {
+    font-size: 20px;
+    font-weight: 500;
+    margin-bottom: 25px;
+}
+
+.wrapper .main-container-page-9 .content-wrapper .content-item .timeline-wrapper {
+    position: relative;
+}
+
+.wrapper .main-container-page-9 .content-wrapper .content-item .timeline-wrapper .timeline-vertical-line {
+    background-color: indigo;
+    height: calc(100% - 77px);
+    left: 50%;
+    position: absolute;
+    transform: translate(-50%, 0);
+    width: 2px;
+}
+
+.wrapper .main-container-page-9 .content-wrapper .content-item .timeline-wrapper .timeline-item {
+    margin-bottom: 20px;
+}
+
+.wrapper .main-container-page-9 .content-wrapper .content-item .timeline-wrapper .timeline-item .timeline-date {
+    background-color: white;
+    border: 2px solid indigo;
+    border-radius: 50px;
+    color: indigo;
+    font-size: 13px;
+    padding: 8px 17px;
+    position: relative;
+}
+
+.wrapper .main-container-page-9 .content-wrapper .content-item .timeline-wrapper .timeline-item .flex-1 {
+    flex: 1;
+}
+
+.wrapper .main-container-page-9 .content-wrapper .content-item .timeline-wrapper .timeline-item .flex-content {
+    background-color: white;
+    border-radius: 7px;
+    margin: 10px;
+    padding: 10px 15px;
+    text-align: left;
+}
+
+.wrapper .main-container-page-9 .content-wrapper .content-item .timeline-wrapper .timeline-item .flex-content:nth-child(odd) {
+    margin-right: 60px;
+}
+
+.wrapper .main-container-page-9 .content-wrapper .content-item .timeline-wrapper .timeline-item .flex-content:nth-child(even) {
+    margin-left: 60px;
+}
+
+.wrapper .main-container-page-9 .content-wrapper .content-item .timeline-wrapper .timeline-item .timeline-content {
+    margin-top: 5px;
+}
+
+.wrapper .main-container-page-9 .content-wrapper .content-item .timeline-wrapper .timeline-item .title {
+    border-bottom: 1px solid #ccc;
+    font-size: 15px;
+    padding-bottom: 5px;
+}
+
+.wrapper .main-container-page-9 .content-wrapper .content-item .timeline-wrapper .timeline-item .content {
+    color: #888;
+    font-size: 13px;
+    line-height: 15px;
+    margin-top: 5px;
+}
+
+.wrapper .main-container-page-9 .bg-sampul {
+    height: 100%;
+    position: absolute;
+    width: 100%;
+}
+
+.wrapper .main-container-page-10 {
+    background-size: cover;
+    background-position: center;
+    display: none;
+    min-height: 100vh;
+    position: relative;
+    width: 100%;
+}
+
+.wrapper .main-container-page-10 .content-wrapper {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    height: calc(100% - 65px);
+    padding-top: 70px;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    overflow-y: scroll;
+    z-index: 10;
+}
+
+.wrapper .main-container-page-10 .content-wrapper .content-item {
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+    margin-top: 20px;
+    margin-bottom: 100px;
+    text-align: center;
+    width: 100%;
+}
+
+.wrapper .main-container-page-10 .content-wrapper .content-item .title {
+    font-size: 20px;
+    font-weight: 500;
+    margin-bottom: 25px;
+}
+
+.wrapper .main-container-page-10 .content-wrapper .content-item .galleries-wrapper {
+    display: grid;
+    gap: 20px;
+    grid-template-columns: 1fr 1fr;
+    margin: auto;
+    width: 85%;
+}
+
+.wrapper .main-container-page-10 .content-wrapper .content-item .galleries-wrapper .gallery-item {
+    cursor: pointer;
+    border-radius: 8px;
+    width: 100%;
+}
+
+.wrapper .main-container-page-10 .bg-sampul {
+    height: 100%;
+    position: absolute;
+    width: 100%;
+}
+
+.wrapper .tabbar {
+    align-items: center;
+    display: none;
+    background-color: white;
+    border: 1px solid #ddd;
+    bottom: 0;
+    height: 65px;
+    overflow: scroll;
+    position: fixed;
+    width: 450px;
+    z-index: 10;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+.wrapper .tabbar::-webkit-scrollbar {
+    display: none;
+}
+
+.wrapper .tabbar .tabbar-main {
+    position: relative;
+    display: flex;
+}
+
+.wrapper .tabbar .item {
+    align-items: center;
+    cursor: pointer;
+    opacity: 0.5;
+    display: flex;
+    flex-direction: column;
+    font-size: 11px;
+    width: 80px;
+}
+
+.wrapper .tabbar .item-active {
+    opacity: 1;
+}
+
+.wrapper .tabbar .item .fa {
+    font-size: 20px;
+    margin-bottom: 2px;
+}
+
+@media screen and (max-width: 450px) {
+    .wrapper .tabbar {
+        width: 100%;
+    }
+}
+
+.wrapper #buttonIconVolumeMusic {
+    display: none;
+    opacity: 0.5;
+    cursor: pointer;
+    position: absolute;
+    bottom: 25%;
+    right: 0;
+    font-size: 18px;
+    padding: 7px 12px;
+    color: white;
+    border-top-left-radius: 15px;
+    border-bottom-left-radius: 15px;
+    z-index: 10;
+}
+
+.wrapper .frame-preview {
+    display: none;
+    width: 30%;
+    z-index: 9;
+    position: absolute;
+}
+
+#previewFrameLeftTop {
+    left: 0;
+}
+
+#previewFrameRightTop {
+    right: 0;
+}
+
+#previewFrameLeftBottom {
+    bottom: 65px;
+    left: 0;
+}
+
+#previewFrameRightBottom {
+    right: 0;
+    bottom: 65px;
+}
+
+@media screen and (max-width: 350px) {
+    .wrapper .frame-preview {
+        width: 35%;
+    }
+}
+
+.modal-dialog .modal-body {
+    display: flex;
+    flex-direction: column;
+}
+
+.modal-dialog .modal-body .modal-item {
+    align-items: center;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+    padding: 20px;
+    box-shadow: 1px 2px 12px rgba(0, 0, 0, 0.1);
+    margin-bottom: 15px;
+    margin-top: 15px;
+    width: 100%;
+}
+
+.modal-dialog .modal-body .modal-item img {
+    height: 50px;
+}
+
+.modal-dialog .modal-body .modal-item span {
+    font-size: 14px;
+    text-align: center;
+    color: #555;
+}
