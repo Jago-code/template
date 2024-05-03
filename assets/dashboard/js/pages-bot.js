@@ -28,11 +28,15 @@ $(document).ready(function () {
               </div>
             </div>
           </td>
+          <td><span class="badge bg-label-info me-1">${bot.cpu}</span></td>
+          <td><span class="badge bg-label-info me-1">${bot.memory}</span></td>
           <td>${bot.platform}</td>
           <td><span class="badge bg-label-${bot.status === 'Active' ? 'success' : 'danger'} me-1">${bot.status}</span></td>
           <td>${bot.totalHitsPerDay}</td>
           <td>${bot.totalViewAdsPerDay}</td>
           <td>${bot.totalClickAdsPerDay}</td>
+          <td>${bot.totalErrorPerDay}</td>
+          <td>${bot.uptime}</td>
           <td>
             <button type="button" data-id="${bot._id}" class="btn p-0 bot-delete">
               <i class="ti ti-trash"></i>
