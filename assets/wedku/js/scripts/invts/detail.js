@@ -1,19 +1,48 @@
 $(function () {
   'use strict';
-
-  $('#fDetail').submit(function(e){
-    e.preventDefault();
-    $('#fDetail').block({ message: '<div class="spinner-border text-primary" role="status"></div>', css: { backgroundColor: 'transparent', border: '0' }, overlayCSS: { backgroundColor: '#fff', opacity: 0.8 } });
-
-    $.post($(this).attr('action'),$(this).serialize(), function(d){
-      $('#fDetail').unblock()
-      if (d.status == 200) Swal.fire({ title: "Success!", text: d.msg, icon: "success", customClass: { confirmButton: "btn btn-primary" }, buttonsStyling: !1 });
-      else Swal.fire({ title: "Error!", text: d.msg, icon: "error", customClass: { confirmButton: "btn btn-primary" }, buttonsStyling: !1 });
-    });
+  
+  // event handlerr
+  $("#akad_display").change(function() {
+    if ($(this).prop('checked')) $('#form-akad').show();
+    else $('#form-akad').hide();
+  });
+  
+  $("#reception_display").change(function() {
+    if ($(this).prop('checked')) $('#form-reception').show();
+    else $('#form-reception').hide();
+  });
+  
+  $("#display_broadcast").change(function() {
+    if ($(this).prop('checked')) $('.broadcast').show();
+    else $('.broadcast').hide();
+  });
+  
+  $("#display_story").change(function() {
+    if ($(this).prop('checked')) $('.loveStory').show();
+    else $('.loveStory').hide();
   });
 
+  $('#form-update').submit(function(e){
+    e.preventDefault();
+    $('#form-update').block({ message: '<div class="spinner-border text-primary" role="status"></div>', css: { backgroundColor: 'transparent', border: '0' }, overlayCSS: { backgroundColor: '#fff', opacity: 0.8 } });
+    $.ajax({
+      url: $(this).attr('action'),
+      type: "POST",
+      data: $(this).serialize(),
+      success: function (d) {
+        $('#form-update').unblock()
+        Swal.fire({ title: "Good job!", text: d.msg, icon: "success", customClass: { confirmButton: "btn btn-primary" }, buttonsStyling: !1 })
+      },
+      error: function (e) {
+        $('#form-update').unblock()
+        const msg = e.responseJSON.msg;
+        Swal.fire({ title: "Upss!", text: msg ? msg : 'Terjadi kesalahan!', icon:"error", customClass:{ confirmButton:"btn btn-primary" }, buttonsStyling: !1 });
+      },
+    });
+  });
+  
   // form repeater jquery
-  $('.lovestry').repeater({
+  $('.loveStory').repeater({
     show: function () {
       $(this).slideDown();
       // Feather Icons
@@ -22,13 +51,13 @@ $(function () {
       }
     },
     hide: function (deleteElement) {
-      if (confirm('Are you sure you want to delete this element?')) {
+      if (confirm('Apakah Anda yakin ingin menghapus elemen ini?')) {
         $(this).slideUp(deleteElement);
       }
     }
   });
   
-  $('.siaranf').repeater({
+  $('.broadcast').repeater({
     show: function () {
       $(this).slideDown();
       if (feather) {
@@ -36,70 +65,79 @@ $(function () {
       }
     },
     hide: function (deleteElement) {
-      if (confirm('Are you sure you want to delete this element?')) {
+      if (confirm('Apakah Anda yakin ingin menghapus elemen ini?')) {
         $(this).slideUp(deleteElement);
       }
     }
   });
 
-  var tpg;
-  $('#dmn').on('input', function(){
-    clearTimeout(tpg);
-    if (this.value.length > 2){
-      $('#ldslg').html('<div class="spinner-border spinner-border-sm"></div>');
-      tpg = setTimeout(cekSlug(this.value), 5000);
+  let timeoutCheck;
+  $('#linkInvitation').on('input', function(){
+    clearTimeout(timeoutCheck);
+    let slug = this.value;
+    if (slug.length > 2){
+      $('#loadingCheck').html('<div class="spinner-border spinner-border-sm"></div>');
+      timeoutCheck = setTimeout(function() {
+          checkLinkInvitation(slug);
+      }, 1000);
     }
-    $('#exSlug').html('');
+    $('#linkResult').html('');
   });
 
-  function cekSlug(vl) {
-    $.get(`/api/cekDomain?slug=${vl}`, function(d){
-      if (d.status == 200) $('#exSlug').html(`<i class="text-success">${location.host}/${d.slug}</i>`);
-      else $('#exSlug').html(`<i class="text-danger">${location.host}/${d.slug}</i>`);
-      $('#ldslg').html('');
+  function checkLinkInvitation (slug) {
+    $.get(`/api/checkLinkInvitation?slug=${slug}`, function(d){
+      if (d.status === 200) {
+        $('.btn-save').prop('disabled', false);
+        $('#linkResult').html(`<i class="text-success">${d.link}</i>`);
+      } else {
+        $('.btn-save').prop('disabled', true);
+        $('#linkResult').html(`<i class="text-danger">${d.link}</i>`);
+      }
+      $('#loadingCheck').html('');
     })
   }
 
-  if ($('#ppq-img')) {
-    var resetImage = $('#ppq-img').attr('src');
-    $('#ppq').on('change', function (e) {
+  if ($('#displayAvatarMale')) {
+    var resetImage = $('#displayAvatarMale').attr('src');
+    $('#uploadAvatarMale').on('change', function (e) {
       var reader = new FileReader(),
         files = e.target.files;
       reader.onload = function () {
-        if ($('#ppq-img')) {
-          $('#ppq-img').attr('src', reader.result);
+        if ($('#displayAvatarMale')) {
+          $('#displayAvatarMale').attr('src', reader.result);
         }
       };
       reader.readAsDataURL(files[0]);
       if(files[0].name != undefined || files[0].name != ''){
         uploadFile(files[0].name, files[0])
-          .then(dur => $('#plur').val(dur));
+          .then(dur => $('#man_avatar').val(dur));
       }
     });
 
-    $('#ppq-reset').on('click', function () {
-      $('#ppq-img').attr('src', resetImage);
+    $('#btnResetAvatarMale').on('click', function () {
+      $('#displayAvatarMale').attr('src', resetImage);
     });
   }
-  if ($('#pwq-img')) {
-    var resetImage = $('#pwq-img').attr('src');
-    $('#pwq').on('change', function (e) {
+  
+  if ($('#displayAvatarFemale')) {
+    var resetImage = $('#displayAvatarFemale').attr('src');
+    $('#uploadAvatarFemale').on('change', function (e) {
       var reader = new FileReader(),
         files = e.target.files;
       reader.onload = function () {
-        if ($('#pwq-img')) {
-          $('#pwq-img').attr('src', reader.result);
+        if ($('#displayAvatarFemale')) {
+          $('#displayAvatarFemale').attr('src', reader.result);
         }
       };
       reader.readAsDataURL(files[0]);
       if(files[0].name != undefined || files[0].name != ''){
         uploadFile(files[0].name, files[0])
-          .then(dur => $('#ppur').val(dur));
+          .then(dur => $('#woman_avatar').val(dur));
       }
     });
 
-    $('#pwq-reset').on('click', function () {
-      $('#pwq-img').attr('src', resetImage);
+    $('#btnResetAvatarFemale').on('click', function () {
+      $('#displayAvatarFemale').attr('src', resetImage);
     });
   }
 });

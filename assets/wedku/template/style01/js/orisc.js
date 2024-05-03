@@ -3,8 +3,8 @@ let audioIsPlaying = false;
 musicAudio.loop = true;
 
 var options = {
-		text: `${fdat.guest}!Author Fahmi Hidaytulloh - https://fahmihdytlloh.web.app!${new Date().getTime()}`,
-    logo: '/assets/images/logo/logo-bg.png',
+		text: `${fdat.guest}!Author Fahmi Hidaytulloh - https://fahmihdytllah.me!${new Date().getTime()}`,
+    logo: 'https://cdn.jagocode.my.id/assets/wedku/images/logo/logo-bg.png',
     width: 300,
     height: 300,
     colorDark : "#000000",
@@ -218,7 +218,8 @@ lightbox.option({
 
 new WOW().init();
 
-const mydmn = ['l.wed.my.id','wed.my.id', 'w.jagocode.my.id', 'wed.jagocode.my.id'];
+const mydmn = ['wedku.live', 'l.wed.my.id','wed.my.id', 'w.jagocode.my.id', 'wed.jagocode.my.id'];
+
 // if (true) {
 if (!mydmn.includes(location.host)){
   location.href = 'https://www.jagocode.my.id'

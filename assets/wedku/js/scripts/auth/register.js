@@ -1,8 +1,11 @@
-
 $(function () {
-  ('use strict');
-
   var freg = $('.auth-register-form');
+  
+  $.ajaxSetup({
+    headers: {
+      'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+    }
+ });
 
   new Cleave($('.nwa'), {
       blocks: [3, 4, 5]
@@ -53,12 +56,6 @@ $(function () {
       },
     });
   });
-});
-
-$.ajaxSetup({
-   headers: {
-      'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-   }
 });
 
 window.loginGoogle = (res) => {

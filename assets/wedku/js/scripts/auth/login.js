@@ -3,10 +3,6 @@ $(function () {
   'use strict';
   var flog = $('.auth-login-form');
   
-  function param(name) {
-    return (location.search.split(name + '=')[1] || '').split('&')[0];
-  }
-
   // jQuery Validation
   // --------------------------------------------------------------------
   if (flog.length) {
@@ -38,20 +34,28 @@ $(function () {
       success: function (d) {
         flog.unblock();
         Swal.fire({ title: "Good job!", text: d.msg, icon: "success", customClass: { confirmButton: "btn btn-primary" }, buttonsStyling: !1 })
-        .then(d => {
+        .then(() => {
           if(param('next'))  window.location.href = '/' + decodeURIComponent(param('next'));
           else window.location.href = '/a/dash'
         });
       },
       error: function (e) {
         flog.unblock();
-        const msg = e.responseJSON.msg;
-        Swal.fire({ title: "Upss!", text: msg ? msg : 'There is an error!', icon:"error", customClass:{ confirmButton:"btn btn-primary" }, buttonsStyling: !1 });
+        const data = e.responseJSON;
+        if (data?.type === 'notverify') {
+          window.location.href = '/auth/verify'
+        } else {
+          Swal.fire({ title: "Upss!", text: data ? data.msg : 'There is an error!', icon:"error", customClass:{ confirmButton:"btn btn-primary" }, buttonsStyling: !1 });
+        }
       },
     });
   });
 });
 
+window.param = function (name) {
+  return (location.search.split(name + '=')[1] || '').split('&')[0];
+}
+  
 $.ajaxSetup({
    headers: {
       'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
@@ -68,7 +72,7 @@ window.loginGoogle = (res) => {
       $.unblockUI();
       Swal.fire({ title: "Good job!", text: d.msg, icon: "success", customClass: { confirmButton: "btn btn-primary" }, buttonsStyling: !1 })
       .then(d => {
-        if(param('next'))  window.location.href = '/' + decodeURIComponent(param('next'));
+        if (param('next'))  window.location.href = '/' + decodeURIComponent(param('next'));
         else window.location.href = '/a/dash'
       });
     },
