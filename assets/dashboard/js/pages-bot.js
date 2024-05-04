@@ -37,6 +37,7 @@ $(document).ready(function () {
           <td>${bot.totalClickAdsPerDay}</td>
           <td>${bot.totalErrorPerDay}</td>
           <td>${bot.uptime}</td>
+          <td>${moment(bot.updateAt).fromNow()}</td>
           <td>
             <button type="button" data-id="${bot._id}" class="btn p-0 bot-delete">
               <i class="ti ti-trash"></i>
