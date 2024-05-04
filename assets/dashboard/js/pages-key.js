@@ -162,7 +162,7 @@ $(document).ready(function () {
         d.data.forEach(key => {
           const statusKey = key.status === 'Active' ? 'success' : key.status === 'Pending' ? 'warning' : 'danger';
           const isBtnBuyOrRenew =
-            key.status === 'Expired' || key.status === 'Pending'
+            (key.status === 'Expired' && key.type !== 'trial') || key.status === 'Pending'
               ? ` <button data-id="${key._id}" data-type="${key.type}" class="btn btn-sm rounded-pill btn-label-primary mb-2 btn-buy">
               <span class="ti-xs ti ti-wallet me-1"></span>${key.status === 'Pending' ? 'Bayar' : 'Perpanjang'}
             </button><br/>`
@@ -173,8 +173,8 @@ $(document).ready(function () {
               <div class="dropdown api-key-actions">
                 <a class="btn dropdown-toggle text-muted hide-arrow p-0" data-bs-toggle="dropdown"><i class="ti ti-dots-vertical ti-sm"></i></a>
                 <div class="dropdown-menu dropdown-menu-end">
-                  <a href="javascript:;" class="dropdown-item key-setting" data-id="${key._id}"><i class="ti ti-settings-code me-2"></i>Pengaturan</a>
-                  <a href="javascript:;" class="dropdown-item key-delete" data-id="${key._id}"><i class="ti ti-trash me-2"></i>Hapus</a>
+                  <button class="dropdown-item key-setting" data-id="${key._id}" ${key.type === 'trial' && key.status === 'Expired' ? 'disabled' : ''}><i class="ti ti-settings-code me-2"></i>Pengaturan</button>
+                  <button class="dropdown-item key-delete" data-id="${key._id}" ${key.type === 'trial' && key.status === 'Expired' ? 'disabled' : ''}><i class="ti ti-trash me-2"></i>Hapus</button>
                 </div>
               </div>
               <div class="d-flex align-items-center mb-3">
