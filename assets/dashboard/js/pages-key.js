@@ -58,7 +58,15 @@ $(document).ready(function () {
       $('#fromManual').show();
     }
   });
-
+  
+  $('#autoSendReport').change(function () {
+    if ($(this).is(':checked')) {
+      $('#formNumber').show();
+    } else {
+      $('#formNumber').hide();
+    }
+  });
+  
   $('#withProxy').change(function () {
     if ($(this).is(':checked')) {
       $('#formProxy').show();
@@ -67,11 +75,19 @@ $(document).ready(function () {
     }
   });
   
-  $('#autoSendReport').change(function () {
+  $('#customReferer').change(function () {
     if ($(this).is(':checked')) {
-      $('#formNumber').show();
+      $('#formReferer').show();
     } else {
-      $('#formNumber').hide();
+      $('#formReferer').hide();
+    }
+  });
+  
+  $('#randomUserAgent').change(function () {
+    if ($(this).is(':checked')) {
+      $('#formAutoSwitch').show();
+    } else {
+      $('#formAutoSwitch').hide();
     }
   });
 
@@ -119,10 +135,13 @@ $(document).ready(function () {
         $('#urlManual').val(d.data.urlManual.join('\n'));
       }
 
-      // if (d.data.type === 'trial') {
-      //   $('#autoSendReport').prop('checked', false);
-      //   $('#withProxy').prop('checked', false);
-      // }
+      if (d.data.type === 'trial') {
+        $('#autoSendReport').prop('checked', false);
+        $('#withProxy').prop('checked', false);
+        $('#customReferer').prop('checked', false);
+        $('#randomUserAgent').prop('checked', false);
+        $('#autoSwitch').prop('checked', false);
+      }
 
       if (d.data.autoSendReport) {
         $('#autoSendReport').prop('checked', true);
@@ -140,6 +159,24 @@ $(document).ready(function () {
       } else {
         $('#withProxy').prop('checked', false);
         $('#formProxy').hide();
+      }
+      
+      if (d.data.customReferer) {
+        $('#customReferer').prop('checked', true);
+        $('#formReferer').show();
+        $('#listReferer').val(d.data.referer.join('\n'));
+      } else {
+        $('#customReferer').prop('checked', false);
+        $('#formReferer').hide();
+      }
+      
+      if (d.data.randomUserAgent) {
+        $('#randomUserAgent').prop('checked', true);
+        $('#formAutoSwitch').show();
+        $('#autoSwitch').prop('checked', true);
+      } else {
+        $('#randomUserAgent').prop('checked', false);
+        $('#formAutoSwitch').hide();
       }
 
       $('#settingKeyModal').modal('show');
@@ -173,7 +210,7 @@ $(document).ready(function () {
               <div class="dropdown api-key-actions">
                 <a class="btn dropdown-toggle text-muted hide-arrow p-0" data-bs-toggle="dropdown"><i class="ti ti-dots-vertical ti-sm"></i></a>
                 <div class="dropdown-menu dropdown-menu-end">
-                  <button class="dropdown-item key-setting" data-id="${key._id}" ${key.type === 'trial' && key.status === 'Expired' ? 'disabled' : ''}><i class="ti ti-settings-code me-2"></i>Pengaturan</button>
+                  <button class="dropdown-item key-setting" data-id="${key._id}" ${key.status === 'Expired' ? 'disabled' : ''}><i class="ti ti-settings-code me-2"></i>Pengaturan</button>
                   <button class="dropdown-item key-delete" data-id="${key._id}" ${key.type === 'trial' && key.status === 'Expired' ? 'disabled' : ''}><i class="ti ti-trash me-2"></i>Hapus</button>
                 </div>
               </div>
