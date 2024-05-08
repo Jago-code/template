@@ -190,22 +190,34 @@ $(document).ready(function () {
       $('#earningReportYearly').show();
       $('.incomeToday').show();
       $('.incomeThisMonth').show();
-
-      $('.incomeToday').html(`<p class="mb-2 mt-1">${formatCurrency(d.data.incomeToday.income)}</p>
-        <div class="pt-1">
-          <span class="badge bg-label-${d.data.incomeToday.status}">${d.data.incomeToday.percentage}</span>
-        </div>`);
-
-      $('.incomeThisMonth').html(`<p class="mb-2 mt-1">${formatCurrency(d.data.incomeThisMonth.income)}</p>
-        <div class="pt-1">
-          <span class="badge bg-label-${d.data.incomeThisMonth.status}">${d.data.incomeThisMonth.percentage}</span>
-        </div>`);
-
-      const earningReportYearlyEl = document.querySelector('#earningReportYearly'),
-        earningReportYearlyConfig = EarningReportsBarChart(d.data.chartData, d.data.categoryData, d.data.activeIndex);
-      if (typeof earningReportYearlyEl !== undefined && earningReportYearlyEl !== null) {
-        const earningReportYearly = new ApexCharts(earningReportYearlyEl, earningReportYearlyConfig);
-        earningReportYearly.render();
+      
+      if (d?.data) {
+        $('.incomeToday').html(`<p class="mb-2 mt-1">${formatCurrency(d.data.incomeToday.income)}</p>
+          <div class="pt-1">
+            <span class="badge bg-label-${d.data.incomeToday.status}">${d.data.incomeToday.percentage}</span>
+          </div>`);
+  
+        $('.incomeThisMonth').html(`<p class="mb-2 mt-1">${formatCurrency(d.data.incomeThisMonth.income)}</p>
+          <div class="pt-1">
+            <span class="badge bg-label-${d.data.incomeThisMonth.status}">${d.data.incomeThisMonth.percentage}</span>
+          </div>`);
+  
+        const earningReportYearlyEl = document.querySelector('#earningReportYearly'),
+          earningReportYearlyConfig = EarningReportsBarChart(d.data.chartData, d.data.categoryData, d.data.activeIndex);
+        if (typeof earningReportYearlyEl !== undefined && earningReportYearlyEl !== null) {
+          const earningReportYearly = new ApexCharts(earningReportYearlyEl, earningReportYearlyConfig);
+          earningReportYearly.render();
+        }
+      } else {
+        $('.incomeToday').html(`<p class="mb-2 mt-1">-</p>
+          <div class="pt-1">
+            <span class="badge bg-label-secondary">-</span>
+          </div>`);
+        $('.incomeThisMonth').html(`<p class="mb-2 mt-1">-</p>
+          <div class="pt-1">
+            <span class="badge bg-label-secondary">-</span>
+          </div>`);
+        $('#earningReportYearly').html('<span class="text-muted">Silahkan login ke akun adsense anda terlebih dahulu.<span>');
       }
     });
   }
